@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: geodeploy
+  labels:
+    app: geoweb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: geoweb
+  template:
+    metadata:
+      labels:
+        app: geoweb
+    spec:
+      containers:
+        - name: geoimage
+          image: geoambarishacr.azurecr.io/geo:v3 
+          ports:
+            - containerPort: 8501
+          
+          volumeMounts:
+            - name: azure
+              mountPath: /mnt/azure
+      volumes:
+        - name: azure
+          persistentVolumeClaim:
+            claimName: azurefile
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: geo-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8501
+  selector:
+    app: geoweb
