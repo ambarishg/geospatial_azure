@@ -39,3 +39,10 @@ Primary technologies used for development is
 
 Main libraries used are GeoPandas for geospatial analysis and Folium     
 
+## Deployment        
+Deployment is done using **Microsoft Azure** using the following technologies     
+
+* Azure File Share for storing the shapefiles    
+* Docker for building the container image   
+* Azure Kubernetes Service for the actual deployment      
+
