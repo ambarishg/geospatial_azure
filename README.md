@@ -43,6 +43,14 @@ The indicators are shown in the Village level for the following levels
 *   Parliamentary Constituency   
 *   Assembly Constituency         
 
+## Data for the Current Impelementation  
+
+The data for the Socio Economic Data has been downloaded from   
+* [West Bengal 2001 Socio Economic Data](https://geodata.lib.utexas.edu/catalog/nyu-2451-34360)         
+* [Assam 2001 Socio Economic Data](https://geodata.lib.utexas.edu/catalog/nyu-2451-42187)     
+* [Uttar Pradesh 2001 Socio Economic Data](https://geodata.lib.utexas.edu/catalog/nyu-2451-60250)     
+* [GIS shapefiles for India's parliamentary and assembly constituencies including polling booth localities](https://pub.uni-bielefeld.de/record/2674065)     
+
 # Technology      
 
 Primary technologies used for development is   
