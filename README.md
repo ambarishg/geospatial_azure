@@ -5,7 +5,9 @@
 **Socio Economic** Data  can be used by policy makers of the country to guide the administration for proper functioning of the country. Unfortunately the data is distributed in various formats such as shapefiles , tabular format. Insights and proper decision making is difficult since the data is not consolidated. The data is also not available to the decision makers in the format they can utilize   
 
 ## Solution / Idea 
-
+The solution would be to develop the **SocioEconomic Hub** for India.  
+The socio economic data would be consolidated with geospatial data as well as tabular data. The data would be cleaned and accurate. 
+The data would be presented to the decision makers in the format they can utilize           
 
 # Current Implementation    
 
