@@ -60,5 +60,21 @@ Deployment is done using **Microsoft Azure** using the following technologies
 
 # Key Implementation Steps for the Full Solution   
 
+The `present solution` considers the following states    
+*  Assam     
+*  West Bengal   
+*  Uttar Pradesh    
+*  Union Territories     
+
+The `present solution` considers 16 Socio Economic Indicators.    
+
+The **future solution** would be extended to    
+*  All States and Union Territories of India   
+*  Other Socio Economic Indicators [ There are 200 of them ]      
+
+The `present solution`  is scalable , reliable . It uses `Azure File Share` as the repository for data.   
+
+
+The **future solution** would use the concept of **GeoLakeHouse** and use **Azure DataBricks**  and **Apache Sedona(Geospark)** for better performance   
 
 
