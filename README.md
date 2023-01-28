@@ -1,5 +1,14 @@
 # Overview                 
 
+## Problem    
+
+**Socio Economic** Data  can be used by policy makers of the country to guide the administration for proper functioning of the country. Unfortunately the data is distributed in various formats such as shapefiles , tabular format. Insights and proper decision making is difficult since the data is not consolidated. The data is also not available to the decision makers in the format they can utilize   
+
+## Solution / Idea 
+
+
+# Current Implementation    
+
 This project shows the **socio economic** data of Indian States. The data presently shown are 
 * Scheduled Tribes,              
 * Scheduled Caste,          
@@ -17,8 +26,7 @@ This project shows the **socio economic** data of Indian States. The data presen
 * Number of College, Number of Industrial School,       
 * Number of Training School,           
 * Number of Adult literacy Class/Centre        
-
-        
+       
 
 The socio economic indicators are presently shown for  
 *  Assam     
