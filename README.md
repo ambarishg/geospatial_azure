@@ -1,6 +1,6 @@
 # Overview                 
 
-This project shows the socio economic data of Indian States. The data presently shown are 
+This project shows the **socio economic** data of Indian States. The data presently shown are 
 * Scheduled Tribes,              
 * Scheduled Caste,          
 * Literacy,           
@@ -18,4 +18,24 @@ This project shows the socio economic data of Indian States. The data presently 
 * Number of Training School,           
 * Number of Adult literacy Class/Centre        
 
-This can be extended for other socio economic indicators  
+This can be extended for other socio economic indicators        
+
+The socio economic indicators are presently shown for  
+*  Assam     
+*  West Bengal   
+*  Uttar Pradesh    
+*  Union Territories  
+    
+The indicators are shown in the Village level for the following levels     
+*   District    
+*   Parliamentary Constituency   
+*   Assembly Constituency         
+
+# Technology      
+
+Primary technologies used for development is   
+* Python 
+* Streamlit  
+
+Main libraries used are GeoPandas for geospatial analysis and Folium     
+
