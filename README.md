@@ -83,6 +83,6 @@ The **future solution** would be extended to
 The `present solution`  is scalable , reliable . It uses `Azure File Share` as the repository for data.   
 
 
-The **future solution** would use the concept of **GeoLakeHouse** and use **Azure DataBricks**  and **Apache Sedona(Geospark)** for better performance   
+The **future solution** would use the concept of [**GeoLakeHouse**](https://www.databricks.com/blog/2021/12/17/building-a-geospatial-lakehouse-part-1.html) and use **Azure DataBricks**  and **Apache Sedona(Geospark)** for better performance   
 
 
