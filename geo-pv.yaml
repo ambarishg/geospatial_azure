@@ -5,7 +5,7 @@ metadata:
   labels:
     app: geoweb
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: geoweb
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: geoimage
-          image: geoambarishacr.azurecr.io/geo:v3 
+          image: geoambarishacr.azurecr.io/geo:v2 
           ports:
             - containerPort: 8501
           

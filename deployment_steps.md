@@ -37,7 +37,7 @@ docker build -t geo .
 docker run -p 8501:8501 geo
 
 # Login into the Azure Container Registry    
-docker tag geo:latest geoambarishacr.azurecr.io/geo:v3 
+docker tag geo:latest geoambarishacr.azurecr.io/geo:v2 
 
 # Create a Azure Container Registry    
 az acr create --resource-group $AKS_PERS_RESOURCE_GROUP  --name geoambarishacr --sku Basic 
@@ -47,7 +47,7 @@ az acr login -n geoambarishacr
 
 
 # Push image into Azure Container Registry  
-docker push geoambarishacr.azurecr.io/geo:v3
+docker push geoambarishacr.azurecr.io/geo:v2
 
 # Update the  Azure Container Registry 
 az acr update -n geoambarishacr --admin-enabled true       

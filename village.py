@@ -161,8 +161,8 @@ def get_socio_economic_data ():
     "label": "Missing values",}
     )
     ax.set_axis_off()
-    plt.savefig('Choice.png')
-    st.image('Choice.png',width=800)
+    plt.savefig(GEOSPATIAL_FILE_PATH + 'Choice.png')
+    st.image(GEOSPATIAL_FILE_PATH + 'Choice.png',width=800)
     
     found = found_item(choice)
     if(found == False ):
