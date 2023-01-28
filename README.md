@@ -18,13 +18,15 @@ This project shows the **socio economic** data of Indian States. The data presen
 * Number of Training School,           
 * Number of Adult literacy Class/Centre        
 
-This can be extended for other socio economic indicators        
+        
 
 The socio economic indicators are presently shown for  
 *  Assam     
 *  West Bengal   
 *  Uttar Pradesh    
-*  Union Territories  
+*  Union Territories              
+
+This can be **easily extended** for other `socio economic indicators and other Indian States`
     
 The indicators are shown in the Village level for the following levels     
 *   District    
