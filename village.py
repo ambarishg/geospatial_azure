@@ -4,10 +4,36 @@ import matplotlib.pyplot as plt
 import numpy as np  
 
 from config import vars_shapefile,vars_shapefile_assembly, \
-vars_book,vars_indicators,vars_state,vars_analysis_level
+vars_book,vars_indicators,vars_state,vars_analysis_level, \
+vars_map_pop_up
 
 from config import GEOSPATIAL_FILE_PATH
 
+def found_item(choice):
+    found = False
+    for name in vars_map_pop_up:
+        if(name == choice):
+            found = True
+            break
+    return found
+
+def intialize_vars():
+    analysis_level, pc, ac, district, page_category='', '', '', '', ''
+    return(analysis_level, pc, ac, district, page_category)
+
+def set_analysis_labels(analysis_level, pc, ac, district, page_category, state):
+    if(analysis_level == 'Parliament'):
+        st.subheader( 
+        page_category + " in the parliament constituency " + pc + 
+        " in " + state)
+    elif(analysis_level == 'Assembly'):
+        st.subheader( 
+        page_category + " in the assembly constituency " + ac + 
+        " in " + state)
+    else:
+        st.subheader( 
+    page_category + " in the district " + str(district) + 
+    " in " + state)
 
 def set_summary_stats_label(analysis_level, pc, ac, district, page_category):
     if(analysis_level == 'Parliament'):
@@ -39,10 +65,21 @@ def get_assembly_data(state):
         plot_locations = gpd.read_file(GEOSPATIAL_FILE_PATH + vars_shapefile_assembly[state])
         return plot_locations
    
+def find_intersection_shape(x, y):
+    x = x.to_crs(epsg='4326')
+    y = y.to_crs(epsg='4326')
+    mx = x.overlay(y,how="intersection")
+    return mx 
+
+def set_summary_stats(choice, df):
+    st.write("Median  :" + str(df[choice].median()))
+    st.write("Maximum  :" + str(df[choice].max()))
+    st.write("Minimum  :" + str(df[choice].min()))
+    st.write("Standard Deviation  :" + str(df[choice].std()))
 
 def get_socio_economic_data ():
 
-    analysis_level, pc, ac, district, page_category='', '', '', '', ''
+    analysis_level, pc, ac, district, page_category= intialize_vars()
 
     state = st.sidebar.selectbox("Choose the State",
                 (vars_state))    
@@ -65,9 +102,7 @@ def get_socio_economic_data ():
                     pc_all)    
         pc_assembly = assembly_data[assembly_data.pc_name == pc]
 
-        plot_locations = plot_locations.to_crs(epsg='4326')
-        pc_assembly = pc_assembly.to_crs(epsg='4326')
-        mx = plot_locations.overlay(pc_assembly,how="intersection")
+        mx = find_intersection_shape(plot_locations, pc_assembly)
     elif(analysis_level == 'Assembly'):
         assembly_data = get_assembly_data(state)
 
@@ -78,9 +113,7 @@ def get_socio_economic_data ():
                     ac_all)    
         ac_assembly = assembly_data[assembly_data.ac_name == ac]
 
-        plot_locations = plot_locations.to_crs(epsg='4326')
-        ac_assembly = ac_assembly.to_crs(epsg='4326')
-        mx = plot_locations.overlay(ac_assembly,how="intersection")
+        mx = find_intersection_shape(plot_locations, ac_assembly)
 
     else:
         district_all = plot_locations["DISTRICT"].unique()
@@ -101,23 +134,15 @@ def get_socio_economic_data ():
 
     choice = vars_book[page_category]
 
-    if(analysis_level == 'Parliament'):
-        st.subheader( 
-        page_category + " in the parliament constituency " + pc + 
-        " in " + state)
-    elif(analysis_level == 'Assembly'):
-        st.subheader( 
-        page_category + " in the assembly constituency " + ac + 
-        " in " + state)
-    else:
-        st.subheader( 
-    page_category + " in the district " + str(district) + 
-    " in " + state)
-
+    set_analysis_labels(analysis_level, pc, ac, district, page_category, state)
     df = mx[["NAME",choice]].sort_values(by=[choice],ascending = False)
-
     st.dataframe(df.head(10),use_container_width = True)
 
+    
+    set_summary_stats_label(analysis_level, pc, ac, district, page_category)
+    set_summary_stats(choice, df)
+
+    set_maps_label(analysis_level, pc, ac, district, page_category)
     ax = mx.plot(
     column=choice,  # Data to plot
     figsize=(15, 10),
@@ -135,25 +160,24 @@ def get_socio_economic_data ():
     "hatch": "///",
     "label": "Missing values",}
     )
-
-    set_summary_stats_label(analysis_level, pc, ac, district, page_category)
-
-
-    st.write("Median  :" + str(df[choice].median()))
-    st.write("Maximum  :" + str(df[choice].max()))
-    st.write("Minimum  :" + str(df[choice].min()))
-    st.write("Standard Deviation  :" + str(df[choice].std()))
-
-    set_maps_label(analysis_level, pc, ac, district, page_category)
-
     ax.set_axis_off()
     plt.savefig('Choice.png')
-
     st.image('Choice.png',width=800)
-
-    m=mx.explore()
-
+    
+    found = found_item(choice)
+    if(found == False ):
+        vars_map_pop_up.append(choice)
+    m=mx.explore(popup=vars_map_pop_up,tooltip=vars_map_pop_up)
     st.components.v1.html(m._repr_html_(),height=800,width=800)
+
+
+
+
+
+
+
+
+
 
 
 
