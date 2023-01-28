@@ -56,5 +56,9 @@ Deployment is done using **Microsoft Azure** using the following technologies
 
 * Azure File Share for storing the shapefiles    
 * Docker for building the container image   
-* Azure Kubernetes Service for the actual deployment      
+* Azure Kubernetes Service for the actual deployment        
+
+# Key Implementation Steps for the Full Solution   
+
+
 
