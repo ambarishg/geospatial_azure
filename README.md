@@ -7,7 +7,10 @@
 ## Solution / Idea 
 The solution would be to develop the **SocioEconomic Hub** for India.  
 The socio economic data would be consolidated with geospatial data as well as tabular data. The data would be cleaned and accurate. 
-The data would be presented to the decision makers in the format they can utilize           
+The data would be presented to the decision makers in the format they can utilize            
+
+**Geospatial conflation** will be used to merge various sources of geospatial data and tabular data to produce meaningful insights    
+
 
 # Current Implementation    
 
@@ -42,6 +45,11 @@ The indicators are shown in the Village level for the following levels
 *   District    
 *   Parliamentary Constituency   
 *   Assembly Constituency         
+
+## Geospatial conflation       
+
+Here the **Parliamentary and Assembly** constituency data is `overlayed` on the village level data to produce data at the Parliamentary and Assembly level.       
+
 
 ## Data for the Current Impelementation  
 
